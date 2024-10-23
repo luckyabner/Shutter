@@ -1,7 +1,11 @@
-import Image from "next/image";
+import PhotoGallery from "@/components/photo-gallery";
 
 const fetchImages = async (category) => {
-  const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/photos?category=${category}`); // 使用绝对URL
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + `/api/photos?category=${category}`,
+    { next: { revalidate: 3600 } } // 缓存1小时
+  );
+
   if (!response.ok) {
     throw new Error('Failed to fetch images');
   }
@@ -12,21 +16,12 @@ export default async function Photos({ category = '' }) {
   const images = await fetchImages(category);
 
   return (
-    <div>
-      <h1>我的相册</h1>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {images.map((image) => (
-          <div key={image.name} style={{ margin: '10px' }}>
-            <Image
-              className="w-auto h-auto"
-              src={image.url} // 使用COS图片URL
-              alt={image.name}
-              width={200}
-              height={200}
-            />
-          </div>
-        ))}
-      </div>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+        {category ? `${decodeURIComponent(category)} ` : 'Photos'}
+      </h1>
+
+      <PhotoGallery images={images} />
     </div>
   );
 }

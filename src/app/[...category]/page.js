@@ -8,10 +8,10 @@ export default async function Home({ params }) {
     category = `${category[0]}/${category[1]}`;
   }
   return (
-    <div>
+    <>
       <Suspense fallback={<div>Loading...</div>}>
         <Categories category={category} />
       </Suspense>
-    </div>
+    </>
   );
 }
