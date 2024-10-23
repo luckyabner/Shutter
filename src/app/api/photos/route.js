@@ -1,9 +1,13 @@
 import cos from '../../../../config'
 
-const listHandler = async (req, res) => {
+//获取图片列表
+export async function GET(request) {
+  const searchParams = request.nextUrl.searchParams;
+  const category = searchParams.get('category');
   const params = {
     Bucket: process.env.COS_BUCKET,
     Region: process.env.COS_REGION,
+    Prefix: category ? `${category}/` : '',
   };
 
   try {
@@ -14,25 +18,12 @@ const listHandler = async (req, res) => {
         return {
           name: item.Key,
           url: `https://${params.Bucket}.cos.${params.Region}.myqcloud.com/${item.Key}`,
-          size: item.Size,
           time: item.LastModified,
         };
       });
-    return new Response(JSON.stringify(photos), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    return Response.json(photos);
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    return Response.error(err);
   }
 
 };
-
-export { listHandler as GET };
