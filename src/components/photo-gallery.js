@@ -10,7 +10,7 @@ export default function PhotoGallery({ images }) {
   return (
     <>
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
-        {images.map((image) => (
+        {images.map((image, index) => (
           <div
             key={image.name}
             className="relative break-inside-avoid mb-4 cursor-pointer group"

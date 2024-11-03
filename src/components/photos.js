@@ -1,19 +1,10 @@
 import PhotoGallery from "@/components/photo-gallery";
+import { fetchPhotos } from "@/lib/data";
 
-const fetchImages = async (category) => {
-  const response = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + `/api/photos?category=${category}`,
-    { next: { revalidate: 3600 } } // 缓存1小时
-  );
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch images');
-  }
-  return response.json();
-};
 
 export default async function Photos({ category = '' }) {
-  const images = await fetchImages(category);
+  const images = await fetchPhotos(category);
 
   return (
     <div className="container mx-auto px-4 py-8">
