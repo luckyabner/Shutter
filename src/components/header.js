@@ -15,6 +15,13 @@ export default function Header() {
 
           <nav className="flex items-center space-x-8">
             <Link
+              href="/category"
+              className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            >
+              分类
+
+            </Link>
+            <Link
               href="/about"
               className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
             >
