@@ -1,6 +1,6 @@
 import cos from '../../config';
 
-export async function fetchPhotos({ category = '' }) {
+export async function fetchPhotos({ category }) {
 
   const params = {
     Bucket: process.env.COS_BUCKET,

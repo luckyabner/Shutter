@@ -19,7 +19,7 @@ export default async function Categories({ category }) {
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/${category.Prefix}`}
+              href={`/cat/${category.Prefix}`}
               className="group relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="aspect-square p-6 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
