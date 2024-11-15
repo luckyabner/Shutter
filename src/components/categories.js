@@ -1,20 +1,10 @@
 import Link from "next/link";
-import Photos from "./photos";
-import { fetchCategories } from "@/lib/data";
 
-export default async function Categories({ category }) {
-  const categories = await fetchCategories({ category });
-
-  if (categories.length === 0) {
-    return <Photos category={category} />;
-  }
+export default async function Categories({ categories }) {
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-800  text-center">
-        {category ? `${decodeURIComponent(category)} ` : 'Photos'}
-      </h1>
-      <div className=" flex mt-24 items-center justify-center p-8">
+    <div className="container mx-auto px-4">
+      <div className=" flex mt-12 items-center justify-center p-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
             <Link

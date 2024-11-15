@@ -1,6 +1,6 @@
 import Photos from "@/components/photos";
 import { fetchPhotos } from "@/lib/data";
-import React, { Suspense } from "react";
+import React from "react";
 
 
 export default async function Home({ params }) {
@@ -9,12 +9,10 @@ export default async function Home({ params }) {
   const photos = await fetchPhotos({ category: cat });
   return (
     <>
-      <h1 className="">
+      <h1 className="flex justify-center text-3xl font-bold">
         {cat}
       </h1>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Photos photos={photos} />
-      </Suspense>
+      <Photos photos={photos} />
     </>
   );
 }

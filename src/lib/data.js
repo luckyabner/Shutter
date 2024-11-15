@@ -13,10 +13,14 @@ export async function fetchPhotos({ category }) {
     const photos = data.Contents
       .filter((item) => item.Size !== '0')
       .map((item) => {
+        const key = item.Key;
+        const name = key.substring(key.lastIndexOf('/') + 1, key.lastIndexOf('.'));
+        const date = new Date(item.LastModified);
+        const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         return {
-          name: item.Key,
+          name: name,
           url: `https://${params.Bucket}.cos.${params.Region}.myqcloud.com/${item.Key}`,
-          time: item.LastModified,
+          time: formattedDate,
         };
       });
     return photos;
