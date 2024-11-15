@@ -9,7 +9,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 hover:opacity-75 transition-opacity">
               <Images className="h-6 w-6" />
-              <span className="text-xl font-bold">Album</span>
+              <span className="text-xl font-bold">Abner`s Album</span>
             </Link>
           </div>
 
@@ -25,7 +25,7 @@ export default function Header() {
               href="/about"
               className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
             >
-              About
+              关于
             </Link>
           </nav>
         </div>
