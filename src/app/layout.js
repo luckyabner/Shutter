@@ -2,18 +2,9 @@ import { Inter } from "next/font/google"
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { OpenPanelComponent } from "@openpanel/nextjs";
 
 const inter = Inter({ subsets: ["latin"] })
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
 
 export const metadata = {
   title: "Album App",
@@ -28,6 +19,12 @@ export default function RootLayout({ children }) {
         <main className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-8">
           {children}
         </main>
+        <OpenPanelComponent
+          clientId="b188394c-cf7f-446f-b9e9-b5d3325e1b90"
+          trackScreenViews={true}
+          trackAttributes={true}
+          trackOutgoingLinks={true}
+        />
         <Footer />
       </body>
     </html>
