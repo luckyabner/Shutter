@@ -3,6 +3,9 @@ import Categories from "@/components/categories";
 import { fetchCategories } from "@/lib/data";
 
 
+// 每小时更新一次
+export const revalidate = 3600;
+
 export default async function Home() {
   const categories = await fetchCategories({ category: '' });
   return (

@@ -2,6 +2,9 @@ import Photos from '@/components/photos';
 import { fetchPhotos } from '@/lib/data';
 import React from 'react';
 
+// 每小时更新一次
+export const revalidate = 3600;
+
 export default async function HomePage() {
   const photos = await fetchPhotos({ category: '' });
   return (
