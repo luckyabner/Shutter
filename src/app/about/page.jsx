@@ -11,6 +11,7 @@ export default function AboutPage() {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           本项目由<Link className='text-blue-400 hover:underline' href={'https://nextjs.org/'}>NextJS</Link>开发，使用<Link className='text-blue-400 hover:underline' href={'https://cloud.tencent.com/product/cos'}>腾讯云COS</Link>存储图片，部署于<Link className='text-blue-400 hover:underline' href={'https://vercel.com'}>Vercel</Link>。
         </p>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">图片均为原图，故加载时间可能不是很快。</p>
       </div>
 
 

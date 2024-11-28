@@ -1,7 +1,6 @@
 import cos from '../../config';
 
 export async function fetchPhotos({ category }) {
-
   const params = {
     Bucket: process.env.COS_BUCKET,
     Region: process.env.COS_REGION,
@@ -22,7 +21,8 @@ export async function fetchPhotos({ category }) {
           url: `https://${params.Bucket}.cos.${params.Region}.myqcloud.com/${item.Key}`,
           time: formattedDate,
         };
-      });
+      })
+      .sort((a, b) => b.timestamp - a.timestamp); // 按时间戳排序，最新的在前面
     return photos;
   } catch (err) {
     throw new Error(err);
