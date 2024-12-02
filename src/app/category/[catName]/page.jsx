@@ -9,7 +9,6 @@ export default async function Home({ params }) {
   const { catName } = await params;
   const cat = decodeURIComponent(catName);
   const photos = await fetchPhotos({ category: cat });
-  console.log(photos);
   return (
     <>
       <h1 className="flex justify-center text-3xl font-bold">

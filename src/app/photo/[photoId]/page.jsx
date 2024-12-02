@@ -6,13 +6,13 @@ export default async function PhotoDetail({ params }) {
   const photoUrl = decodeURIComponent(photoId);
 
   return (
-    <div>
+    <div className='h-screen flex justify-center items-center'>
       <Image
         src={photoUrl}
         alt={photoUrl}
-        width={400}
-        height={300}
-        className="w-full h-auto object-cover transition-all duration-300"
+        width={2400}
+        height={1800}
+        className="max-h-screen w-auto h-auto object-cover transition-all duration-300"
       />
     </div>
   )
