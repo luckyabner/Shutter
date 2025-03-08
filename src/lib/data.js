@@ -1,5 +1,6 @@
 import cos from '../../config';
 
+// 获取照片列表
 export async function fetchPhotos({ category }) {
   const params = {
     Bucket: process.env.COS_BUCKET,
@@ -18,7 +19,7 @@ export async function fetchPhotos({ category }) {
         const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         return {
           name: name,
-          url: `https://${params.Bucket}.cos.${params.Region}.myqcloud.com/${item.Key}`,
+          url: `https://${params.Bucket}.cos.${params.Region}.myqcloud.com/${item.Key}?imageSlim`,
           time: formattedDate,
         };
       })

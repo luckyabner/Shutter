@@ -11,9 +11,6 @@ export default async function Home({ params }) {
   const photos = await fetchPhotos({ category: cat });
   return (
     <>
-      <h1 className="flex justify-center text-3xl font-bold">
-        {cat}
-      </h1>
       <Photos photos={photos} />
     </>
   );
