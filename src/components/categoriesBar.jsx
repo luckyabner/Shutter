@@ -1,39 +1,48 @@
-'use client'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
-import ToolsBar from './toolsBar';
-import SiteLogo from './siteLogo';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import ToolsBar from "./toolsBar";
+import SiteLogo from "./siteLogo";
+import { House } from "lucide-react";
 
 export default function CategoriesBar({ categories }) {
   const pathname = decodeURIComponent(usePathname());
-  const [selectedCategory, setSeletedCategory] = useState('精选')
+  const [selectedCategory, setSeletedCategory] = useState("精选");
 
   useEffect(() => {
-    const currentCategory = categories.find(cat =>
-      pathname === `/category/${cat.Prefix}`
-    )
+    const currentCategory = categories.find(
+      (cat) => pathname === `/category/${cat.Prefix}`,
+    );
     if (currentCategory) {
-      setSeletedCategory(currentCategory.Prefix)
+      setSeletedCategory(currentCategory.Prefix);
     } else {
-      setSeletedCategory('精选')
+      setSeletedCategory("home");
     }
-  }, [pathname, categories])
+  }, [pathname, categories]);
 
   return (
-    <div className='sticky top-4 z-30 w-full flex items-center justify-between py-2'>
-      <div className='flex items-center h-10 bg-gray-100/90 backdrop-blur-sm p-4 rounded-full shadow-md'>
+    <div className="sticky top-4 z-30 mx-auto flex w-full items-center px-4 py-2">
+      <div className="hidden h-10 items-center rounded-full p-4 backdrop-blur-sm md:flex">
         <SiteLogo />
       </div>
-      <div className='w-fit h-10 flex items-center space-x-4 text-lg font-bold bg-gray-100/90 backdrop-blur-sm p-4 rounded-full shadow-md'>
+      <div className="mx-auto flex h-10 w-fit items-center space-x-4 overflow-x-auto overflow-y-hidden whitespace-nowrap rounded-full bg-gray-100/90 p-4 text-lg shadow-md backdrop-blur-sm dark:bg-gray-700">
+        <Link
+          className={`cursor-pointer rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-900 ${
+            selectedCategory === "home" && "text-sky-700"
+          }`}
+          href={"/"}
+          onClick={() => setSeletedCategory("home")}
+        >
+          <House />
+        </Link>
         {categories.map((category, index) => (
           <Link
             key={index}
-            href={category.Prefix === '精选' ? '/' : `/category/${category.Prefix}`}
-            className={`cursor-pointer transition-colors ${selectedCategory === category.Prefix
-              ? 'text-blue-600 underline underline-offset-4'
-              : 'hover:text-blue-600'
-              }`}
+            href={`/category/${category.Prefix}`}
+            className={`cursor-pointer rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-900 ${
+              selectedCategory === category.Prefix && "text-sky-700"
+            }`}
             onClick={() => setSeletedCategory(category.Prefix)}
           >
             {category.Prefix}
@@ -41,9 +50,9 @@ export default function CategoriesBar({ categories }) {
         ))}
       </div>
       {/* tool bar */}
-      <div className='flex items-center space-x-4 h-10 bg-gray-100/90 dark:bg-gray-900 backdrop-blur-sm p-4 rounded-full shadow-md'>
+      <div className="hidden h-10 items-center space-x-4 rounded-full bg-gray-100/90 p-4 shadow-md backdrop-blur-sm md:flex dark:bg-gray-700">
         <ToolsBar />
       </div>
     </div>
-  )
+  );
 }
