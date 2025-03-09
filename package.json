@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "preinstall": "npx only-allow pnpm",
+    "dev": "next dev --turbo -p 1234",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

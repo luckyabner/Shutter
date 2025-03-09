@@ -13,7 +13,7 @@ async function PhotoContainer({ params }) {
   if (!photos || photos.length === 0) {
     return (
       <div className="mt-12 text-center text-2xl">
-        There are no photo in this category.
+        There are no photos in this category.
       </div>
     );
   }

@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import CategoriesBar from "@/components/categoriesBar";
 import { Suspense } from "react";
 import { fetchCategories } from "@/lib/data";
+import Script from "next/script";
 
 export const metadata = {
   title: "Shutter",
@@ -19,6 +20,20 @@ async function CategoriesContainer() {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-EJ8KB4YL6D"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EJ8KB4YL6D');
+          `}
+        </Script>
+      </head>
       <body
         className={`mx-auto flex min-h-screen max-w-7xl flex-col bg-gray-50 font-mono dark:bg-gray-900 dark:text-white`}
       >

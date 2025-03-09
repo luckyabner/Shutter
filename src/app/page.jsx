@@ -6,7 +6,7 @@ export const revalidate = 3600;
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto mt-8 max-w-3xl">
+    <div className="container mx-auto mt-28 max-w-3xl">
       <h1 className="text-5xl font-semibold">Welcome👋🏻</h1>
       <p className="mt-6 text-lg text-gray-700 dark:text-white">
         Through my lens, I capture moments of light and shadow. Welcome to my

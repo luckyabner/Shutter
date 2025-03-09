@@ -29,7 +29,7 @@ export default function CategoriesBar({ categories }) {
       <div className="mx-auto flex h-10 w-fit items-center space-x-4 overflow-x-auto overflow-y-hidden whitespace-nowrap rounded-full bg-gray-100/90 p-4 text-lg shadow-md backdrop-blur-sm dark:bg-gray-700">
         <Link
           className={`cursor-pointer rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-900 ${
-            selectedCategory === "home" && "text-sky-700"
+            selectedCategory === "home" && "text-sky-700 dark:text-sky-300"
           }`}
           href={"/"}
           onClick={() => setSeletedCategory("home")}
@@ -41,7 +41,7 @@ export default function CategoriesBar({ categories }) {
             key={index}
             href={`/category/${category.Prefix}`}
             className={`cursor-pointer rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-900 ${
-              selectedCategory === category.Prefix && "text-sky-700"
+              selectedCategory === category.Prefix && "text-sky-700 dark:text-sky-300"
             }`}
             onClick={() => setSeletedCategory(category.Prefix)}
           >
