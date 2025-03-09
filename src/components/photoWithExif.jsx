@@ -6,6 +6,7 @@ import { Focus } from "lucide-react";
 import { Camera } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import { PhotoSkeleton } from "./photoSkeletons";
 
 // 常量提取
 const INITIAL_EXIF_DATA = {
@@ -100,11 +101,7 @@ export default function PhotoWithExif({ photoUrl }) {
   }, [photoUrl]);
 
   if (!imageSrc) {
-    return (
-      <div className="flex h-full w-full items-center justify-center">
-        加载中...
-      </div>
-    );
+    return <PhotoSkeleton width="w-[800px]" height="h-[600px]" />;
   }
 
   // 用于显示的相机型号，限制长度避免溢出
@@ -118,7 +115,7 @@ export default function PhotoWithExif({ photoUrl }) {
           alt="photo"
           width={800}
           height={600}
-          className="mx-auto object-contain transition-all duration-300"
+          className="mx-auto h-auto w-auto object-contain transition-all duration-300"
           style={{ maxHeight: "calc(100vh - 100px)" }}
         />
       </div>
