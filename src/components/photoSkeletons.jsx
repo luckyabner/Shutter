@@ -2,12 +2,12 @@ import React from "react";
 
 // 单个骨架屏组件
 function PhotoSkeleton({
-  width = "w-[400px]",
+  width = "w-[350px]",
   height = "h-[300px]",
   showCaption = false,
 }) {
   return (
-    <div className="mb-4 flex flex-col gap-2">
+    <div className="mb-4 flex flex-col items-center justify-center gap-2">
       {/* 图片占位 */}
       <div
         className={`${width} ${height} animate-pulse rounded-md bg-gray-200`}
