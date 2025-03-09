@@ -6,7 +6,7 @@ export const revalidate = 3600;
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto mt-28 max-w-3xl">
+    <div className="container mx-auto mt-28 max-w-3xl px-8">
       <h1 className="text-5xl font-semibold">Welcome👋🏻</h1>
       <p className="mt-6 text-lg text-gray-700 dark:text-white">
         Through my lens, I capture moments of light and shadow. Welcome to my
@@ -15,7 +15,7 @@ export default function HomePage() {
       <div className="mt-4 flex items-center gap-2 text-lg text-gray-700 dark:text-white">
         Github:
         <ToolsBar />
-      </div>
+        </div>
     </div>
   );
 }

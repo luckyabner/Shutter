@@ -41,7 +41,8 @@ export default function CategoriesBar({ categories }) {
             key={index}
             href={`/category/${category.Prefix}`}
             className={`cursor-pointer rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-900 ${
-              selectedCategory === category.Prefix && "text-sky-700 dark:text-sky-300"
+              selectedCategory === category.Prefix &&
+              "text-sky-700 dark:text-sky-300"
             }`}
             onClick={() => setSeletedCategory(category.Prefix)}
           >

@@ -1,4 +1,5 @@
 import Photos from "@/components/photos";
+import PhotoSkeletons from "@/components/photoSkeletons";
 import { fetchPhotos } from "@/lib/data";
 import React, { Suspense } from "react";
 
@@ -23,7 +24,7 @@ async function PhotoContainer({ params }) {
 
 export default function Home({ params }) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<PhotoSkeletons />}>
       <PhotoContainer params={params} />
     </Suspense>
   );
