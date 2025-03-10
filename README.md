@@ -25,3 +25,7 @@
 ## 使用方式
 
 配置文件填写格式已写在根目录的`example.env`文件中，按要求填写自己的腾讯云COS存储桶的配置即可。
+
+## LICENSE
+
+This project is licensed under the [MIT License](LICENSE).
