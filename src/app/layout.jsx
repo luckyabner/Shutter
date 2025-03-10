@@ -5,11 +5,39 @@ import CategoriesBar from "@/components/categoriesBar";
 import { Suspense } from "react";
 import { fetchCategories } from "@/lib/data";
 import Script from "next/script";
+import SITE from "@/siteConfig";
 
 export const metadata = {
-  title: "Shutter",
-  description:
-    "Shutter is a photography blog that shares my photography experiences.",
+  title: SITE.title,
+  description: SITE.description,
+  keywords: SITE.keywords,
+  authors: [
+    {
+      name: SITE.author,
+      url: SITE.url,
+    },
+  ],
+  openGraph: {
+    title: SITE.title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.title,
+    images: [
+      {
+        url: SITE.ogImage,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE.title,
+    description: SITE.description,
+    images: [SITE.ogImage],
+  },
 };
 
 async function CategoriesContainer() {
