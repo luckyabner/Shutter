@@ -1,10 +1,15 @@
-# 以腾讯云COS为库的网页相册系统
+# Shutter-照片展示网站
+
+## 简介
+
+一个基于Nextjs开发的照片展示网站，使用了腾讯云COS存储桶来存储图片。
+
+体验地址：[Shutter](https://shutter.luckyabner.top/)
 
 ## 展示
 
-![alt text](image.png)
-
-体验地址：[Anber's Album](https://album.abnerz6.top/)
+![alt text](image-2.png)
+![alt text](image-1.png)
 
 ## 使用方式
 
