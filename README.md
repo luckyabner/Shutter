@@ -26,6 +26,9 @@
 
 配置文件填写格式已写在根目录的`example.env`文件中，按要求填写自己的腾讯云COS存储桶的配置即可。
 
+##  相关链接
+- 网站图标 - [LogoCook](https://www.logocook.shop/)
+
 ## LICENSE
 
 This project is licensed under the [MIT License](LICENSE).
