@@ -19,7 +19,7 @@ async function PhotoContainer({ params }) {
     );
   }
 
-  return <Photos photos={photos} />;
+  return <Photos initialPhotos={photos} />;
 }
 
 export default function Home({ params }) {
