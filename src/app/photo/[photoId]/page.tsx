@@ -1,4 +1,4 @@
-import PhotoWithExif from "@/components/photoWithExif";
+import PhotoWithExif from "@/components/PhotoWithExif";
 import React from "react";
 
 interface PhotoDetailProps {
