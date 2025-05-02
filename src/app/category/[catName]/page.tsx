@@ -1,12 +1,22 @@
-import Photos from "@/components/photos";
-import PhotoSkeletons from "@/components/photoSkeletons";
+import Photos from "@/components/Photos";
+import PhotoSkeletons from "@/components/PhotoSkeletons";
 import { fetchPhotos } from "@/lib/data";
 import React, { Suspense } from "react";
 
 // 每小时更新一次
 export const revalidate = 3600;
 
-async function PhotoContainer({ params }) {
+interface CategoryPageProps {
+  params: {
+    catName: string;
+  };
+}
+
+async function PhotoContainer({
+  params,
+}: {
+  params: CategoryPageProps["params"];
+}) {
   const { catName } = await params;
   const cat = decodeURIComponent(catName);
   const photos = await fetchPhotos({ category: cat });
@@ -22,7 +32,7 @@ async function PhotoContainer({ params }) {
   return <Photos initialPhotos={photos} />;
 }
 
-export default function Home({ params }) {
+export default function CategoryPage({ params }: CategoryPageProps) {
   return (
     <Suspense fallback={<PhotoSkeletons />}>
       <PhotoContainer params={params} />

@@ -1,7 +1,13 @@
 import PhotoWithExif from "@/components/photoWithExif";
-import React, { Suspense } from "react";
+import React from "react";
 
-export default async function PhotoDetail({ params }) {
+interface PhotoDetailProps {
+  params: {
+    photoId: string;
+  };
+}
+
+export default async function PhotoDetail({ params }: PhotoDetailProps) {
   const { photoId } = await params;
   const photoUrl = decodeURIComponent(photoId);
   return (

@@ -1,5 +1,5 @@
-import ToolsBar from "@/components/toolsBar";
-import React, { Suspense } from "react";
+import ToolsBar from "@/components/ToolsBar";
+import React from "react";
 
 // 每小时更新一次
 export const revalidate = 3600;
@@ -15,7 +15,7 @@ export default function HomePage() {
       <div className="mt-4 flex items-center gap-2 text-lg text-gray-700 dark:text-white">
         Github:
         <ToolsBar />
-        </div>
+      </div>
     </div>
   );
 }
