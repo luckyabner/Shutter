@@ -1,4 +1,4 @@
-import SiteLogo from "./siteLogo";
+import SiteLogo from "./SiteLogo";
 import ToolsBar from "./ToolsBar";
 
 export default function Header() {

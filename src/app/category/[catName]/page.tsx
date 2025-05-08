@@ -7,9 +7,9 @@ import React, { Suspense } from "react";
 export const revalidate = 3600;
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     catName: string;
-  };
+  }>;
 }
 
 async function PhotoContainer({

@@ -2,9 +2,9 @@ import PhotoWithExif from "@/components/PhotoWithExif";
 import React from "react";
 
 interface PhotoDetailProps {
-  params: {
+  params: Promise<{
     photoId: string;
-  };
+  }>;
 }
 
 export default async function PhotoDetail({ params }: PhotoDetailProps) {
