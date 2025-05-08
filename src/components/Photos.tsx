@@ -2,9 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { PhotoSkeleton } from "./photoSkeletons";
 
-export default function Photos({ initialPhotos }) {
+interface initialPhotosProps {
+  initialPhotos: {
+    url: string;
+    name: string;
+  }[];
+}
+
+export default function Photos({ initialPhotos }: initialPhotosProps) {
   const [photos, setPhotos] = useState(initialPhotos || []);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);

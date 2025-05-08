@@ -1,8 +1,8 @@
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import CategoriesBar from "@/components/categoriesBar";
+import Footer from "@/components/Footer";
+import CategoriesBar from "@/components/CategoriesBar";
 import { Suspense } from "react";
+import { ReactNode } from "react";
 import { fetchCategories } from "@/lib/data";
 import Script from "next/script";
 import SITE from "@/siteConfig";
@@ -29,11 +29,11 @@ export const metadata = {
         height: 630,
       },
     ],
-    locale: 'zh_CN',
-    type: 'website',
+    locale: "zh_CN",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
     images: [SITE.ogImage],
@@ -45,9 +45,9 @@ async function CategoriesContainer() {
   return <CategoriesBar categories={categories} />;
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EJ8KB4YL6D"

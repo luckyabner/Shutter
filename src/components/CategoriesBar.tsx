@@ -2,11 +2,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import ToolsBar from "./toolsBar";
-import SiteLogo from "./siteLogo";
+import ToolsBar from "./ToolsBar";
+import SiteLogo from "./SiteLogo";
 import { House } from "lucide-react";
 
-export default function CategoriesBar({ categories }) {
+interface CategoriesBarProps {
+  categories: {
+    Prefix: string;
+  }[];
+}
+
+export default function CategoriesBar({ categories }: CategoriesBarProps) {
   const pathname = decodeURIComponent(usePathname());
   const [selectedCategory, setSeletedCategory] = useState("精选");
 

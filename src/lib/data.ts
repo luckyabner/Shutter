@@ -1,10 +1,10 @@
 import cos from "../../config";
 
 // 获取照片列表
-export async function fetchPhotos({ category }) {
+export async function fetchPhotos({ category }: { category: string }) {
   const params = {
-    Bucket: process.env.COS_BUCKET,
-    Region: process.env.COS_REGION,
+    Bucket: process.env.COS_BUCKET || "",
+    Region: process.env.COS_REGION || "",
     Prefix: category ? `${category}/` : "",
   };
 
@@ -23,20 +23,21 @@ export async function fetchPhotos({ category }) {
           name: name,
           url: `https://${params.Bucket}.cos.${params.Region}.myqcloud.com/${item.Key}?imageSlim`,
           time: formattedDate,
+          timestamp: date.getTime(), // Add timestamp property
         };
       })
       .sort((a, b) => b.timestamp - a.timestamp); // 按时间戳排序，最新的在前面
     return photos;
   } catch (err) {
-    throw new Error(err);
+    throw new Error(err instanceof Error ? err.message : String(err));
   }
 }
 
 //获取分类列表
-export async function fetchCategories({ category }) {
+export async function fetchCategories({ category }: { category: string }) {
   const params = {
-    Bucket: process.env.COS_BUCKET,
-    Region: process.env.COS_REGION,
+    Bucket: process.env.COS_BUCKET || "",
+    Region: process.env.COS_REGION || "",
     Prefix: category ? `${category}/` : "",
     Delimiter: "/",
   };
@@ -52,6 +53,6 @@ export async function fetchCategories({ category }) {
     });
     return categories;
   } catch (err) {
-    throw new Error(err);
+    throw new Error(err instanceof Error ? err.message : String(err));
   }
 }
