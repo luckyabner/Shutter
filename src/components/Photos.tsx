@@ -78,8 +78,9 @@ export default function Photos({ initialPhotos }: initialPhotosProps) {
                   alt={image.name}
                   width={400}
                   height={300}
-                  priority={index < 9}
-                  loading={index < 9 ? "eager" : "lazy"}
+                  loading={"lazy"}
+                  placeholder="blur"
+                  blurDataURL={"/loading.png"}
                   className="h-auto w-full rounded-lg object-cover transition-all duration-300 hover:scale-105"
                 />
               </div>
